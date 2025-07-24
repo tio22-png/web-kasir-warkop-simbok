@@ -1,0 +1,32 @@
+/* Styling untuk notifikasi toast responsif */
+.responsive-toast {
+  max-width: calc(100vw - 32px);
+}
+
+/* Styling khusus untuk layar kecil (mobile) */
+@media (max-width: 640px) {
+  .responsive-toast {
+    font-size: 0.75rem !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* Animasi toast */
+@keyframes toast-in {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes toast-out {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-20px); opacity: 0; }
+}
+
+/* Menambahkan animasi ke toast */
+.responsive-toast[data-state="entering"] {
+  animation: toast-in 0.3s ease-out;
+}
+
+.responsive-toast[data-state="leaving"] {
+  animation: toast-out 0.3s ease-in forwards;
+}
